@@ -1,0 +1,29 @@
+import json
+import shutil
+
+original = r'/root/stg/dummy.exp'
+target = r'/root/stg/exp.json'
+
+shutil.copyfile(original, target)
+
+fin = open(target, "rt")
+data = fin.read()
+data = data.replace(", 'data': None", '')
+rmv = "'err': None, "
+listOfWords = data.split(rmv, 1)
+if len(listOfWords) > 0: 
+    data = listOfWords[1]
+data = data.replace("'out':", "{'out':")
+data = data.replace("'", '"')
+fin.close()
+fin = open(target, "wt")
+fin.write(data)
+fin.close()
+
+with open(target, 'r') as json_file:
+        json_load = json.load(json_file)
+
+jdata = json_load['out']
+for x in jdata:
+        print(x['master_vdisk_name'], x['state'], x['progress'], x['freeze_time'])
+

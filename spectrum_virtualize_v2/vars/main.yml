@@ -1,0 +1,12 @@
+StorageIP: X.X.X.X
+user: superuser
+pass: ********
+maxtime: 22
+#exec files
+pycook: /root/Storage/spectrum_virtualize/playbooks/script/cook.py
+shcook: /root/Storage/spectrum_virtualize/playbooks/script/cook.sh
+#intercook files
+dummyexp: /root/Storage/spectrum_virtualize/playbooks/script/dummy.json
+res: /root/Storage/spectrum_virtualize/playbooks/script/res.txt
+output: /root/Storage/spectrum_virtualize/playbooks/script/result.txt
+
